@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CM Services | International Business Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-blue: #0a192f;
+            --medium-blue: #1a365d;
+            --violet: #8a2be2;
+            --light-violet: #b19cd9;
+            --beige: #f5f5dc;
+            --sky-blue: #87ceeb;
+            --light-gray: #e6f1ff;
+            --white: #ffffff;
+            --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a192f 0%, #152642 100%);
+            color: var(--light-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--violet), var(--sky-blue));
+            border-radius: 2px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-in-left.appear {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-in-right.appear {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .scale-in.appear {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(10, 25, 47, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--violet);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 8px;
+            color: var(--sky-blue);
+            font-size: 1.4rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--violet), var(--sky-blue));
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--sky-blue);
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        .lang-toggle {
+            background: var(--medium-blue);
+            border-radius: 30px;
+            padding: 4px;
+            display: inline-flex;
+            border: 1px solid rgba(135, 206, 235, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .lang-toggle button {
+            background: transparent;
+            border: none;
+            color: var(--light-gray);
+            padding: 4px 12px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .lang-toggle button.active {
+            background: var(--sky-blue);
+            color: var(--dark-blue);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--violet);
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(26, 54, 93, 0.9)), 
+                        url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 span {
+            color: var(--sky-blue);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: var(--light-gray);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--sky-blue), #5dade2);
+            color: var(--dark-blue);
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(135, 206, 235, 0.4);
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .cta-button.violet {
+            background: linear-gradient(45deg, var(--violet), #6a0dad);
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+            color: white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(135, 206, 235, 0.6);
+        }
+
+        .cta-button.violet:hover {
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.6);
+        }
+
+        /* Plane Animation */
+        .plane-animation {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--sky-blue);
+            animation: fly 20s linear infinite;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        @keyframes fly {
+            0% { transform: translateX(-100px) translateY(50px); }
+            25% { transform: translateX(25vw) translateY(100px); }
+            50% { transform: translateX(50vw) translateY(50px); }
+            75% { transform: translateX(75vw) translateY(100px); }
+            100% { transform: translateX(100vw) translateY(50px); }
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--dark-blue);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: rgba(26, 54, 93, 0.7);
+            border-radius: 15px;
+            padding: 30px 25px;
+            transition: var(--transition);
+            border: 1px solid rgba(135, 206, 235, 0.2);
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--violet);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--violet);
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            background: rgba(135, 206, 235, 0.15);
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--sky-blue);
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            background: linear-gradient(to bottom, var(--dark-blue), #0f1e36);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: rgba(26, 54, 93, 0.7);
+            border-radius: 15px;
+            padding: 30px 25px;
+            text-align: center;
+            border: 1px solid rgba(135, 206, 235, 0.2);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--violet);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--violet);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--sky-blue);
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            background: linear-gradient(to bottom, var(--dark-blue), #0f0f2f);
+        }
+
+        .case-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .case-tab {
+            background: transparent;
+            border: 2px solid var(--sky-blue);
+            color: var(--light-gray);
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .case-tab.active {
+            background: linear-gradient(45deg, var(--sky-blue), #5dade2);
+            color: var(--dark-blue);
+            border-color: transparent;
+        }
+
+        .case-content {
+            background: rgba(26, 54, 93, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(135, 206, 235, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .case-study {
+            display: none;
+        }
+
+        .case-study.active {
+            display: block;
+        }
+
+        .case-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .case-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--violet), #6a0dad);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .case-title {
+            font-size: 1.8rem;
+            color: var(--sky-blue);
+        }
+
+        .case-highlight {
+            background: rgba(135, 206, 235, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid var(--violet);
+        }
+
+        .case-stats {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 25px;
+            gap: 15px;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 180px;
+            padding: 20px 15px;
+            text-align: center;
+            background: rgba(10, 25, 47, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--violet);
+            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .case-image {
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Team Section */
+        .team {
+            background: linear-gradient(to bottom, #0f1e36, #0a192f);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: rgba(26, 54, 93, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(135, 206, 235, 0.3);
+        }
+
+        .member-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+        }
+
+        .member-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .member-role {
+            color: var(--violet);
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(to bottom, var(--dark-blue), #0f1e36);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            background: rgba(26, 54, 93, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--violet);
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 8px;
+            color: var(--sky-blue);
+        }
+
+        .contact-form {
+            background: rgba(26, 54, 93, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--violet);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(135, 206, 235, 0.3);
+            background: rgba(10, 25, 47, 0.6);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--violet);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--sky-blue), #5dade2);
+            color: var(--dark-blue);
+            border: none;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(45deg, var(--violet), #6a0dad);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #050515;
+            padding: 60px 0 25px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-footer {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--violet);
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            max-width: 600px;
+            margin: 0 auto 25px;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            margin: 20px 0 35px;
+            gap: 12px;
+        }
+
+        .social-links a {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(135, 206, 235, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--violet);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            border: 1px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .social-links a:hover {
+            background: var(--sky-blue);
+            color: var(--dark-blue);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(135, 206, 235, 0.2);
+            width: 100%;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3.2rem;
+            }
+            
+            h2 {
+                font-size: 2.4rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+                order: 3;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .lang-toggle {
+                font-size: 0.8rem;
+                padding: 3px;
+            }
+
+            .lang-toggle button {
+                padding: 3px 10px;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                background: var(--dark-blue);
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateY(-150%);
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                z-index: 999;
+            }
+
+            nav ul.active {
+                transform: translateY(0);
+            }
+
+            nav ul li {
+                margin: 12px 0;
+            }
+
+            .header-container {
+                justify-content: space-between;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-top: 30px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                padding: 140px 0 60px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .cta-button {
+                padding: 12px 28px;
+                font-size: 1rem;
+            }
+            
+            .case-content {
+                padding: 20px 15px;
+            }
+            
+            .case-title {
+                font-size: 1.5rem;
+            }
+            
+            .case-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .case-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .case-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .case-tab {
+                width: 90%;
+                margin-bottom: 8px;
+            }
+            
+            .case-image {
+                height: 200px;
+            }
+            
+            .contact-container {
+                gap: 25px;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .section-title h2:after {
+                width: 60px;
+            }
+            
+            .service-card, .benefit-card {
+                padding: 25px 20px;
+            }
+            
+            .stat-item {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .service-card {
+                padding: 20px 15px;
+            }
+            
+            .case-image {
+                height: 180px;
+            }
+            
+            .member-img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Plane Animation -->
+    <div class="plane-animation">
+        <i class="fas fa-plane"></i>
+    </div>
+    <div class="plane-animation" style="top: 30%; animation-delay: -5s; animation-duration: 25s;">
+        <i class="fas fa-plane" style="transform: rotate(30deg);"></i>
+    </div>
+    <div class="plane-animation" style="top: 70%; animation-delay: -10s; animation-duration: 22s;">
+        <i class="fas fa-plane" style="transform: rotate(-20deg);"></i>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-globe"></i>
+                <span class="en-text">CM Services</span>
+                <span class="ru-text" style="display:none">СМ Сервис</span>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home" class="en-text">Home</a><a href="#home" class="ru-text" style="display:none">Главная</a></li>
+                    <li><a href="#services" class="en-text">Services</a><a href="#services" class="ru-text" style="display:none">Услуги</a></li>
+                    <li><a href="#why" class="en-text">Why Us</a><a href="#why" class="ru-text" style="display:none">Почему Мы</a></li>
+                    <li><a href="#cases" class="en-text">Case Studies</a><a href="#cases" class="ru-text" style="display:none">Проекты</a></li>
+                    <li><a href="#team" class="en-text">Our Team</a><a href="#team" class="ru-text" style="display:none">Команда</a></li>
+                    <li><a href="#contact" class="en-text">Contact</a><a href="#contact" class="ru-text" style="display:none">Контакты</a></li>
+                </ul>
+            </nav>
+            
+            <div class="lang-toggle">
+                <button class="active" id="lang-en">EN</button>
+                <button id="lang-ru">RU</button>
+            </div>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero section">
+        <div class="container hero-content">
+            <h1 class="fade-in">
+                <span class="en-text">Connecting <span style="color:var(--sky-blue)">Global Businesses</span> with Russian Opportunities</span>
+                <span class="ru-text" style="display:none">Соединяем <span style="color:var(--sky-blue)">Международный Бизнес</span> с Российскими Возможностями</span>
+            </h1>
+            <p class="fade-in en-text">CM Services specializes in bridging international companies with Russian partners, facilitating imports, exports, and market expansion since 2024.</p>
+            <p class="fade-in ru-text" style="display:none">СМ Сервис специализируется на соединении международных компаний с российскими партнерами, содействии импорту, экспорту и расширению рынка с 2024 года.</p>
+            <div class="cta-buttons fade-in">
+                <a href="#contact" class="cta-button en-text">Get in Touch</a>
+                <a href="#contact" class="cta-button ru-text" style="display:none">Связаться</a>
+                <a href="#contact" class="cta-button violet en-text">Call for Consultation</a>
+                <a href="#contact" class="cta-button violet ru-text" style="display:none">Консультация</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 class="en-text">Our Services</h2>
+                <h2 class="ru-text" style="display:none">Наши Услуги</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card slide-in-left">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="en-text">B2B Matchmaking</h3>
+                    <h3 class="ru-text" style="display:none">B2B Посредничество</h3>
+                    <p class="en-text">Connecting foreign companies with reliable Russian suppliers and distributors across various industries.</p>
+                    <p class="ru-text" style="display:none">Соединяем иностранные компании с надежными российскими поставщиками и дистрибьюторами в различных отраслях.</p>
+                </div>
+                
+                <div class="service-card slide-in-left">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3 class="en-text">International Logistics</h3>
+                    <h3 class="ru-text" style="display:none">Международная Логистика</h3>
+                    <p class="en-text">End-to-end logistics solutions for imports and exports, including customs clearance and shipping.</p>
+                    <p class="ru-text" style="display:none">Комплексные логистические решения для импорта и экспорта, включая таможенное оформление и доставку.</p>
+                </div>
+                
+                <div class="service-card slide-in-right">
+                    <div class="service-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <h3 class="en-text">Oil & Energy Products</h3>
+                    <h3 class="ru-text" style="display:none">Нефть и Энергоносители</h3>
+                    <p class="en-text">Sourcing petroleum products (3+ tons monthly) with min. 1-year contracts and favorable shipping terms.</p>
+                    <p class="ru-text" style="display:none">Поставки нефтепродуктов (3+ тонн ежемесячно) по контрактам от 1 года с выгодными условиями доставки.</p>
+                </div>
+                
+                <div class="service-card slide-in-right">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3 class="en-text">Travel & Hospitality</h3>
+                    <h3 class="ru-text" style="display:none">Путешествия и Гостеприимство</h3>
+                    <p class="en-text">Comprehensive travel solutions including group tickets, accommodation, and local support.</p>
+                    <p class="ru-text" style="display:none">Комплексные туристические решения, включая групповые билеты, проживание и местную поддержку.</p>
+                </div>
+                
+                <div class="service-card slide-in-left">
+                    <div class="service-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h3 class="en-text">Social Media Marketing</h3>
+                    <h3 class="ru-text" style="display:none">Маркетинг в Соцсетях</h3>
+                    <p class="en-text">Content creation and management across Instagram, VK, Facebook for international audiences.</p>
+                    <p class="ru-text" style="display:none">Создание и управление контентом в Instagram, VK, Facebook для международной аудитории.</p>
+                </div>
+                
+                <div class="service-card slide-in-left">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="en-text">Machinery Procurement</h3>
+                    <h3 class="ru-text" style="display:none">Закупка Оборудования</h3>
+                    <p class="en-text">Assisting companies to purchase industrial machinery from Russia or abroad with full support.</p>
+                    <p class="ru-text" style="display:none">Помощь компаниям в приобретении промышленного оборудования из России или за рубежом с полной поддержкой.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why" class="why-choose section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 class="en-text">Why Choose CM Services</h2>
+                <h2 class="ru-text" style="display:none">Почему Выбирают СМ Сервис</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card slide-in-left">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="en-text">Market Entry Expertise</h3>
+                    <h3 class="ru-text" style="display:none">Экспертиза Выхода на Рынок</h3>
+                    <p class="en-text">We make it easier to find new markets in African and Asian countries for businesses looking to expand internationally.</p>
+                    <p class="ru-text" style="display:none">Мы упрощаем выход на рынки африканских и азиатских стран для компаний, стремящихся расширить международное присутствие.</p>
+                </div>
+                
+                <div class="benefit-card slide-in-right">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="en-text">Reliability & Trust</h3>
+                    <h3 class="ru-text" style="display:none">Надежность и Доверие</h3>
+                    <p class="en-text">With 100% client satisfaction in all our projects, we deliver on our promises with integrity and professionalism.</p>
+                    <p class="ru-text" style="display:none">Со 100% удовлетворенностью клиентов во всех проектах мы выполняем обещания с честностью и профессионализмом.</p>
+                </div>
+                
+                <div class="benefit-card slide-in-left">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="en-text">Extensive Network</h3>
+                    <h3 class="ru-text" style="display:none">Обширная Сеть</h3>
+                    <p class="en-text">Our team actively participates in global conferences and events, building valuable connections across industries.</p>
+                    <p class="ru-text" style="display:none">Наша команда активно участвует в международных конференциях и мероприятиях, создавая ценные связи в разных отраслях.</p>
+                </div>
+                
+                <div class="benefit-card slide-in-right">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="en-text">Problem-Solving Approach</h3>
+                    <h3 class="ru-text" style="display:none">Решение Любых Задач</h3>
+                    <p class="en-text">No project is too complex - we thrive on challenges and deliver innovative solutions to any business problem.</p>
+                    <p class="ru-text" style="display:none">Нет слишком сложных проектов - мы решаем любые задачи и находим инновационные решения для любых бизнес-проблем.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="cases" class="case-studies section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 class="en-text">Success Stories</h2>
+                <h2 class="ru-text" style="display:none">Истории Успеха</h2>
+            </div>
+            
+            <div class="case-tabs fade-in">
+                <button class="case-tab active" data-case="1">
+                    <span class="en-text">Zimbabwe Government</span>
+                    <span class="ru-text" style="display:none">Правительство Зимбабве</span>
+                </button>
+                <button class="case-tab" data-case="2">
+                    <span class="en-text">Zambian Energy Co.</span>
+                    <span class="ru-text" style="display:none">Энергокомпания Замбии</span>
+                </button>
+                <button class="case-tab" data-case="3">
+                    <span class="en-text">ZINGSA Space Agency</span>
+                    <span class="ru-text" style="display:none">Космическое Агентство</span>
+                </button>
+            </div>
+            
+            <div class="case-content scale-in">
+                <div class="case-study active" id="case-1">
+                    <div class="case-header">
+                        <div class="case-number">1</div>
+                        <h3 class="case-title en-text">Government Delegation to Sochi</h3>
+                        <h3 class="case-title ru-text" style="display:none">Правительственная Делегация в Сочи</h3>
+                    </div>
+                    
+                    <p class="en-text">We assisted a government company from Zimbabwe with comprehensive travel arrangements for their delegation of 45 people traveling from Moscow to Sochi for an international conference.</p>
+                    <p class="ru-text" style="display:none">Мы помогли правительственной компании из Зимбабве организовать комплексные туристические услуги для делегации из 45 человек, путешествующей из Москвы в Сочи на международную конференцию.</p>
+                    
+                    <div class="case-highlight">
+                        <p class="en-text">"CM Services delivered a top-notch service that exceeded our expectations. Their attention to detail and local expertise made our delegation's visit to Russia seamless and productive."</p>
+                        <p class="ru-text" style="display:none">"СМ Сервис предоставил услуги высочайшего уровня, превзойдя наши ожидания. Их внимание к деталям и местная экспертиза сделали визит нашей делегации в Россию беспроблемным и продуктивным."</p>
+                    </div>
+                    
+                    <h4 class="en-text">Services Provided:</h4>
+                    <h4 class="ru-text" style="display:none">Предоставленные Услуги:</h4>
+                    <ul>
+                        <li class="en-text">Flight bookings for 45 delegates</li>
+                        <li class="ru-text" style="display:none">Бронирование авиабилетов для 45 делегатов</li>
+                        <li class="en-text">Ground transportation with professional drivers</li>
+                        <li class="ru-text" style="display:none">Наземный транспорт с профессиональными водителями</li>
+                        <li class="en-text">Bilingual translators for the entire trip</li>
+                        <li class="ru-text" style="display:none">Двуязычные переводчики на весь период поездки</li>
+                        <li class="en-text">Accommodation arrangements in Sochi</li>
+                        <li class="ru-text" style="display:none">Организация проживания в Сочи</li>
+                        <li class="en-text">24/7 on-ground support</li>
+                        <li class="ru-text" style="display:none">Круглосуточная поддержка на месте</li>
+                    </ul>
+                    
+                    <div class="case-stats">
+                        <div class="stat-item slide-in-left">
+                            <div class="stat-value">45</div>
+                            <div class="stat-label en-text">People Transported</div>
+                            <div class="stat-label ru-text" style="display:none">Перевезено Людей</div>
+                        </div>
+                        <div class="stat-item slide-in-left">
+                            <div class="stat-value">$20k</div>
+                            <div class="stat-label en-text">Project Value</div>
+                            <div class="stat-label ru-text" style="display:none">Стоимость Проекта</div>
+                        </div>
+                        <div class="stat-item slide-in-left">
+                            <div class="stat-value">100%</div>
+                            <div class="stat-label en-text">Client Satisfaction</div>
+                            <div class="stat-label ru-text" style="display:none">Удовлетворенность Клиента</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study" id="case-2">
+                    <div class="case-header">
+                        <div class="case-number">2</div>
+                        <h3 class="case-title en-text">Petroleum Supply to Zambia</h3>
+                        <h3 class="case-title ru-text" style="display:none">Поставки Нефтепродуктов в Замбию</h3>
+                    </div>
+                    
+                    <p class="en-text">A leading Zambian energy company with petrol stations across Southern Africa approached us to source affordable oil products from Russia with favorable shipping conditions to Beira Port.</p>
+                    <p class="ru-text" style="display:none">Ведущая энергетическая компания Замбии с сетью автозаправочных станций в Южной Африке обратилась к нам для поиска доступных нефтепродуктов из России с выгодными условиями доставки в порт Бейра.</p>
+                    
+                    <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1565373679100-7a9eeda7a1d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');"></div>
+                    
+                    <h4 class="en-text">Our Solution:</h4>
+                    <h4 class="ru-text" style="display:none">Наше Решение:</h4>
+                    <ul>
+                        <li class="en-text">Identified reliable Russian suppliers providing 3+ tons monthly</li>
+                        <li class="ru-text" style="display:none">Нашли надежных российских поставщиков с объемами 3+ тонн ежемесячно</li>
+                        <li class="en-text">Negotiated favorable 1-year contract terms</li>
+                        <li class="ru-text" style="display:none">Согласовали выгодные условия годовых контрактов</li>
+                        <li class="en-text">Arranged logistics to Beira Port, Mozambique</li>
+                        <li class="ru-text" style="display:none">Организовали логистику до порта Бейра, Мозамбик</li>
+                        <li class="en-text">Provided ongoing supply chain management</li>
+                        <li class="ru-text" style="display:none">Обеспечили постоянное управление цепочкой поставок</li>
+                    </ul>
+                    
+                    <div class="case-stats">
+                        <div class="stat-item slide-in-left">
+                            <div class="stat-value">15%</div>
+                            <div class="stat-label en-text">Cost Savings</div>
+                            <div class="stat-label ru-text" style="display:none">Экономия Затрат</div>
+                        </div>
+                        <div class="stat-item slide-in-left">
+                            <div class="stat-value">3+ tons</div>
+                            <div class="stat-label en-text">Monthly Supply</div>
+                            <div class="stat-label ru-text" style="display:none">Ежемесячный Объем</div>
+                        </div>
+                        <div class="stat-item slide-in-left">
+                            <div class="stat-value">1 year</div>
+                            <div class="stat-label en-text">Contract Term</div>
+                            <div class="stat-label ru-text" style="display:none">Срок Контракта</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study" id="case-3">
+                    <div class="case-header">
+                        <div class="case-number">3</div>
+                        <h3 class="case-title en-text">Aircraft Procurement for Space Agency</h3>
+                        <h3 class="case-title ru-text" style="display:none">Закупка Самолетов для Космического Агентства</h3>
+                    </div>
+                    
+                    <p class="en-text">ZINGSA (Zimbabwe National Geospatial and Space Agency) approached us to source specialized aircraft for their scientific research and experiments program.</p>
+                    <p class="ru-text" style="display:none">ZINGSA (Национальное геопространственное и космическое агентство Зимбабве) обратилось к нам для поиска специализированных самолетов для своей программы научных исследований и экспериментов.</p>
+                    
+                    <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1559815451-9c6a8f4f0a0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');"></div>
+                    
+                    <h4 class="en-text">Our Achievement:</h4>
+                    <h4 class="ru-text" style="display:none">Наш Результат:</h4>
+                    <ul>
+                        <li class="en-text">Sourced a 7-seater plane for aerodynamic research</li>
+                        <li class="ru-text" style="display:none">Нашли 7-местный самолет для аэродинамических исследований</li>
+                        <li class="en-text">Procured a luxury 5-seater private jet</li>
+                        <li class="ru-text" style="display:none">Приобрели роскошный 5-местный бизнес-джет</li>
+                        <li class="en-text">Facilitated purchase through Cessna in Moscow</li>
+                        <li class="ru-text" style="display:none">Организовали покупку через Cessna в Москве</li>
+                        <li class="en-text">Managed all documentation and logistics</li>
+                        <li class="ru-text" style="display:none">Управляли всей документацией и логистикой</li>
+                    </ul>
+                    
+                    <div class="case-stats">
+                        <div class="stat-item slide-in-left">
+                            <div class="stat-value">$50M</div>
+                            <div class="stat-label en-text">Project Value</div>
+                            <div class="stat-label ru-text" style="display:none">Стоимость Проекта</div>
+                        </div>
+                        <div class="stat-item slide-in-left">
+                            <div class="stat-value">2</div>
+                            <div class="stat-label en-text">Aircrafts Procured</div>
+                            <div class="stat-label ru-text" style="display:none">Приобретено Самолетов</div>
+                        </div>
+                        <div class="stat-item slide-in-left">
+                            <div class="stat-value">30 days</div>
+                            <div class="stat-label en-text">Delivery Time</div>
+                            <div class="stat-label ru-text" style="display:none">Срок Поставки</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 class="en-text">Our Team</h2>
+                <h2 class="ru-text" style="display:none">Наша Команда</h2>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member slide-in-left">
+                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="member-info">
+                        <h3>Robert Nyamugada</h3>
+                        <div class="member-role en-text">CEO & Project Manager</div>
+                        <div class="member-role ru-text" style="display:none">Генеральный директор и менеджер проектов</div>
+                        <p class="en-text">With extensive experience in international business development, Robert leads our strategic partnerships and complex projects.</p>
+                        <p class="ru-text" style="display:none">Имея обширный опыт в международном развитии бизнеса, Роберт возглавляет наши стратегические партнерства и сложные проекты.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member slide-in-right">
+                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="member-info">
+                        <h3>Ekaterina Federenko</h3>
+                        <div class="member-role en-text">Marketing Manager & SMM</div>
+                        <div class="member-role ru-text" style="display:none">Менеджер по маркетингу и SMM</div>
+                        <p class="en-text">Ekaterina drives our marketing strategies and social media presence, helping clients connect with Russian audiences.</p>
+                        <p class="ru-text" style="display:none">Екатерина разрабатывает наши маркетинговые стратегии и управляет присутствием в социальных сетях, помогая клиентам взаимодействовать с российской аудиторией.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 class="en-text">Contact Us</h2>
+                <h2 class="ru-text" style="display:none">Контакты</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item slide-in-left">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="en-text">Address</h3>
+                            <h3 class="ru-text" style="display:none">Адрес</h3>
+                            <p>Sovetskaya Street 2, office 303<br>Moscow Region, Russia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item slide-in-left">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="en-text">Email</h3>
+                            <h3 class="ru-text" style="display:none">Электронная почта</h3>
+                            <p>cm_services@mail.ru</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item slide-in-left">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="en-text">WhatsApp</h3>
+                            <h3 class="ru-text" style="display:none">WhatsApp</h3>
+                            <p>+7 910 448 3756</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item slide-in-left">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="en-text">Working Hours</h3>
+                            <h3 class="ru-text" style="display:none">Рабочие Часы</h3>
+                            <p class="en-text">Monday - Friday: 09:00 - 18:00</p>
+                            <p class="ru-text" style="display:none">Понедельник - Пятница: 09:00 - 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item slide-in-left">
+                        <div class="contact-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="en-text">Global Network</h3>
+                            <h3 class="ru-text" style="display:none">Глобальная Сеть</h3>
+                            <p class="en-text">Active in Africa, Asia, and Russian-friendly countries with extensive conference participation</p>
+                            <p class="ru-text" style="display:none">Активны в Африке, Азии и дружественных России странах с участием в многочисленных конференциях</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form slide-in-right">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="en-text">Your Name</label>
+                            <label for="name" class="ru-text" style="display:none">Ваше Имя</label>
+                            <input type="text" id="name" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="en-text">Email Address</label>
+                            <label for="email" class="ru-text" style="display:none">Электронная почта</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service" class="en-text">Service Interested In</label>
+                            <label for="service" class="ru-text" style="display:none">Интересующая Услуга</label>
+                            <select id="service" required>
+                                <option value="" class="en-text">Select a service</option>
+                                <option value="" class="ru-text" style="display:none">Выберите услугу</option>
+                                <option value="b2b" class="en-text">B2B Matchmaking</option>
+                                <option value="b2b" class="ru-text" style="display:none">B2B Посредничество</option>
+                                <option value="logistics" class="en-text">International Logistics</option>
+                                <option value="logistics" class="ru-text" style="display:none">Международная Логистика</option>
+                                <option value="oil" class="en-text">Oil & Energy Products</option>
+                                <option value="oil" class="ru-text" style="display:none">Нефть и Энергоносители</option>
+                                <option value="travel" class="en-text">Travel & Hospitality</option>
+                                <option value="travel" class="ru-text" style="display:none">Путешествия и Гостеприимство</option>
+                                <option value="smm" class="en-text">Social Media Marketing</option>
+                                <option value="smm" class="ru-text" style="display:none">Маркетинг в Соцсетях</option>
+                                <option value="machinery" class="en-text">Machinery Procurement</option>
+                                <option value="machinery" class="ru-text" style="display:none">Закупка Оборудования</option>
+                                <option value="other" class="en-text">Other Services</option>
+                                <option value="other" class="ru-text" style="display:none">Другие Услуги</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="en-text">Your Message</label>
+                            <label for="message" class="ru-text" style="display:none">Ваше Сообщение</label>
+                            <textarea id="message" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn en-text">Send Message</button>
+                        <button type="submit" class="submit-btn ru-text" style="display:none">Отправить Сообщение</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo-footer">
+                    <i class="fas fa-globe"></i> 
+                    <span class="en-text">CM Services</span>
+                    <span class="ru-text" style="display:none">СМ Сервис</span>
+                </div>
+                
+                <p class="footer-text en-text">Bridging international businesses with Russian opportunities since 2024. We've facilitated over 7 major deals and 15+ SMM projects with 100% client satisfaction.</p>
+                <p class="footer-text ru-text" style="display:none">Соединяем международный бизнес с российскими возможностями с 2024 года. Мы реализовали более 7 крупных сделок и 15+ SMM проектов со 100% удовлетворенностью клиентов.</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                
+                <div class="copyright">
+                    &copy; 2024 
+                    <span class="en-text">CM Services. All Rights Reserved.</span>
+                    <span class="ru-text" style="display:none">СМ Сервис. Все права защищены.</span>
+                    | Sovetskaya Street 2, office 303, Moscow Region, Russia
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        // Case Study Tabs
+        const caseTabs = document.querySelectorAll('.case-tab');
+        const caseStudies = document.querySelectorAll('.case-study');
+        
+        caseTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and studies
+                caseTabs.forEach(t => t.classList.remove('active'));
+                caseStudies.forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding case study
+                const caseId = tab.getAttribute('data-case');
+                document.getElementById(`case-${caseId}`).classList.add('active');
+            });
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Language Toggle
+        const langButtons = document.querySelectorAll('.lang-toggle button');
+        
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                if(button.id === 'lang-ru') {
+                    // Switch to Russian
+                    document.querySelectorAll('.en-text').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.ru-text').forEach(el => el.style.display = 'block');
+                } else {
+                    // Switch to English
+                    document.querySelectorAll('.ru-text').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.en-text').forEach(el => el.style.display = 'block');
+                }
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (document.getElementById('lang-ru').classList.contains('active')) {
+                alert('Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.');
+            } else {
+                alert('Thank you for your message! We will contact you shortly.');
+            }
+            contactForm.reset();
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
+                header.style.padding = '10px 0';
+            } else {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+                header.style.padding = '15px 0';
+            }
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

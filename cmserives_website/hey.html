@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CM Services | International Business Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-blue: #0a192f;
+            --medium-blue: #1a365d;
+            --violet: #8a2be2;
+            --light-violet: #b19cd9;
+            --beige: #f5f5dc;
+            --sky-blue: #87ceeb;
+            --light-gray: #e6f1ff;
+            --white: #ffffff;
+            --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a192f 0%, #152642 100%);
+            color: var(--light-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--violet), var(--sky-blue));
+            border-radius: 2px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(10, 25, 47, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--violet);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 8px;
+            color: var(--sky-blue);
+            font-size: 1.4rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--violet), var(--sky-blue));
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--sky-blue);
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        .lang-toggle {
+            background: var(--medium-blue);
+            border-radius: 30px;
+            padding: 4px;
+            display: inline-flex;
+            border: 1px solid rgba(135, 206, 235, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .lang-toggle button {
+            background: transparent;
+            border: none;
+            color: var(--light-gray);
+            padding: 4px 12px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .lang-toggle button.active {
+            background: var(--sky-blue);
+            color: var(--dark-blue);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--violet);
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(26, 54, 93, 0.9)), 
+                        url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 span {
+            color: var(--sky-blue);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: var(--light-gray);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--sky-blue), #5dade2);
+            color: var(--dark-blue);
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 20px rgba(135, 206, 235, 0.4);
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .cta-button.violet {
+            background: linear-gradient(45deg, var(--violet), #6a0dad);
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+            color: white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(135, 206, 235, 0.6);
+        }
+
+        .cta-button.violet:hover {
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.6);
+        }
+
+        /* Plane Animation */
+        .plane-animation {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--sky-blue);
+            animation: fly 20s linear infinite;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        @keyframes fly {
+            0% { transform: translateX(-100px) translateY(50px); }
+            25% { transform: translateX(25vw) translateY(100px); }
+            50% { transform: translateX(50vw) translateY(50px); }
+            75% { transform: translateX(75vw) translateY(100px); }
+            100% { transform: translateX(100vw) translateY(50px); }
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--dark-blue);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: rgba(26, 54, 93, 0.7);
+            border-radius: 15px;
+            padding: 30px 25px;
+            transition: var(--transition);
+            border: 1px solid rgba(135, 206, 235, 0.2);
+            backdrop-filter: blur(5px);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--violet);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--violet);
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            background: rgba(135, 206, 235, 0.15);
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--sky-blue);
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            background: linear-gradient(to bottom, var(--dark-blue), #0f1e36);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: rgba(26, 54, 93, 0.7);
+            border-radius: 15px;
+            padding: 30px 25px;
+            text-align: center;
+            border: 1px solid rgba(135, 206, 235, 0.2);
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--violet);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--violet);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--sky-blue);
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            background: linear-gradient(to bottom, var(--dark-blue), #0f0f2f);
+        }
+
+        .case-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .case-tab {
+            background: transparent;
+            border: 2px solid var(--sky-blue);
+            color: var(--light-gray);
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .case-tab.active {
+            background: linear-gradient(45deg, var(--sky-blue), #5dade2);
+            color: var(--dark-blue);
+            border-color: transparent;
+        }
+
+        .case-content {
+            background: rgba(26, 54, 93, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(135, 206, 235, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .case-study {
+            display: none;
+        }
+
+        .case-study.active {
+            display: block;
+        }
+
+        .case-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .case-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--violet), #6a0dad);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .case-title {
+            font-size: 1.8rem;
+            color: var(--sky-blue);
+        }
+
+        .case-highlight {
+            background: rgba(135, 206, 235, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid var(--violet);
+        }
+
+        .case-stats {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 25px;
+            gap: 15px;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 180px;
+            padding: 20px 15px;
+            text-align: center;
+            background: rgba(10, 25, 47, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--violet);
+            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .case-image {
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Team Section */
+        .team {
+            background: linear-gradient(to bottom, #0f1e36, #0a192f);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: rgba(26, 54, 93, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(135, 206, 235, 0.3);
+        }
+
+        .member-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+        }
+
+        .member-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .member-role {
+            color: var(--violet);
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(to bottom, var(--dark-blue), #0f1e36);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            background: rgba(26, 54, 93, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--violet);
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .contact-details h3 {
+            margin-bottom: 8px;
+            color: var(--sky-blue);
+        }
+
+        .contact-form {
+            background: rgba(26, 54, 93, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--violet);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(135, 206, 235, 0.3);
+            background: rgba(10, 25, 47, 0.6);
+            color: var(--white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--violet);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, var(--sky-blue), #5dade2);
+            color: var(--dark-blue);
+            border: none;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(45deg, var(--violet), #6a0dad);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #050515;
+            padding: 60px 0 25px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-footer {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--violet);
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            max-width: 600px;
+            margin: 0 auto 25px;
+            font-size: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            margin: 20px 0 35px;
+            gap: 12px;
+        }
+
+        .social-links a {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(135, 206, 235, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--violet);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            border: 1px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .social-links a:hover {
+            background: var(--sky-blue);
+            color: var(--dark-blue);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(135, 206, 235, 0.2);
+            width: 100%;
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3.2rem;
+            }
+            
+            h2 {
+                font-size: 2.4rem;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+                order: 3;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .lang-toggle {
+                font-size: 0.8rem;
+                padding: 3px;
+            }
+
+            .lang-toggle button {
+                padding: 3px 10px;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                background: var(--dark-blue);
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateY(-150%);
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                z-index: 999;
+            }
+
+            nav ul.active {
+                transform: translateY(0);
+            }
+
+            nav ul li {
+                margin: 12px 0;
+            }
+
+            .header-container {
+                justify-content: space-between;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+                margin-top: 30px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                padding: 140px 0 60px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .cta-button {
+                padding: 12px 28px;
+                font-size: 1rem;
+            }
+            
+            .case-content {
+                padding: 20px 15px;
+            }
+            
+            .case-title {
+                font-size: 1.5rem;
+            }
+            
+            .case-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .case-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .case-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .case-tab {
+                width: 90%;
+                margin-bottom: 8px;
+            }
+            
+            .case-image {
+                height: 200px;
+            }
+            
+            .contact-container {
+                gap: 25px;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .section-title h2:after {
+                width: 60px;
+            }
+            
+            .service-card, .benefit-card {
+                padding: 25px 20px;
+            }
+            
+            .stat-item {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .service-card {
+                padding: 20px 15px;
+            }
+            
+            .case-image {
+                height: 180px;
+            }
+            
+            .member-img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Plane Animation -->
+    <div class="plane-animation">
+        <i class="fas fa-plane"></i>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-globe"></i>
+                CM Services
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#why">Why Us</a></li>
+                    <li><a href="#cases">Case Studies</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="lang-toggle">
+                <button class="active" id="lang-en">EN</button>
+                <button id="lang-ru">RU</button>
+            </div>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero section">
+        <div class="container hero-content">
+            <h1>Connecting <span style="color:var(--sky-blue)">Global Businesses</span> with Russian Opportunities</h1>
+            <p>CM Services specializes in bridging international companies with Russian partners, facilitating imports, exports, and market expansion since 2024.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-button">Get in Touch</a>
+                <a href="#contact" class="cta-button violet">Call for Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>B2B Matchmaking</h3>
+                    <p>Connecting foreign companies with reliable Russian suppliers and distributors across various industries.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>International Logistics</h3>
+                    <p>End-to-end logistics solutions for imports and exports, including customs clearance and shipping.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <h3>Oil & Energy Products</h3>
+                    <p>Sourcing petroleum products (3+ tons monthly) with min. 1-year contracts and favorable shipping terms.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Travel & Hospitality</h3>
+                    <p>Comprehensive travel solutions including group tickets, accommodation, and local support.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h3>Social Media Marketing</h3>
+                    <p>Content creation and management across Instagram, VK, Facebook for international audiences.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Machinery Procurement</h3>
+                    <p>Assisting companies to purchase industrial machinery from Russia or abroad with full support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why" class="why-choose section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose CM Services</h2>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Market Entry Expertise</h3>
+                    <p>We make it easier to find new markets in African and Asian countries for businesses looking to expand internationally.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Reliability & Trust</h3>
+                    <p>With 100% client satisfaction in all our projects, we deliver on our promises with integrity and professionalism.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Extensive Network</h3>
+                    <p>Our team actively participates in global conferences and events, building valuable connections across industries.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Problem-Solving Approach</h3>
+                    <p>No project is too complex - we thrive on challenges and deliver innovative solutions to any business problem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="cases" class="case-studies section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Success Stories</h2>
+            </div>
+            
+            <div class="case-tabs">
+                <button class="case-tab active" data-case="1">Zimbabwe Government</button>
+                <button class="case-tab" data-case="2">Zambian Energy Co.</button>
+                <button class="case-tab" data-case="3">ZINGSA Space Agency</button>
+            </div>
+            
+            <div class="case-content">
+                <div class="case-study active" id="case-1">
+                    <div class="case-header">
+                        <div class="case-number">1</div>
+                        <h3 class="case-title">Government Delegation to Sochi</h3>
+                    </div>
+                    
+                    <p>We assisted a government company from Zimbabwe with comprehensive travel arrangements for their delegation of 45 people traveling from Moscow to Sochi for an international conference.</p>
+                    
+                    <div class="case-highlight">
+                        <p>"CM Services delivered a top-notch service that exceeded our expectations. Their attention to detail and local expertise made our delegation's visit to Russia seamless and productive."</p>
+                    </div>
+                    
+                    <h4>Services Provided:</h4>
+                    <ul>
+                        <li>Flight bookings for 45 delegates</li>
+                        <li>Ground transportation with professional drivers</li>
+                        <li>Bilingual translators for the entire trip</li>
+                        <li>Accommodation arrangements in Sochi</li>
+                        <li>24/7 on-ground support</li>
+                    </ul>
+                    
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">45</div>
+                            <div class="stat-label">People Transported</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">$20k</div>
+                            <div class="stat-label">Project Value</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">100%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study" id="case-2">
+                    <div class="case-header">
+                        <div class="case-number">2</div>
+                        <h3 class="case-title">Petroleum Supply to Zambia</h3>
+                    </div>
+                    
+                    <p>A leading Zambian energy company with petrol stations across Southern Africa approached us to source affordable oil products from Russia with favorable shipping conditions to Beira Port.</p>
+                    
+                    <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1565373679100-7a9eeda7a1d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');"></div>
+                    
+                    <h4>Our Solution:</h4>
+                    <ul>
+                        <li>Identified reliable Russian suppliers providing 3+ tons monthly</li>
+                        <li>Negotiated favorable 1-year contract terms</li>
+                        <li>Arranged logistics to Beira Port, Mozambique</li>
+                        <li>Provided ongoing supply chain management</li>
+                    </ul>
+                    
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">15%</div>
+                            <div class="stat-label">Cost Savings</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">3+ tons</div>
+                            <div class="stat-label">Monthly Supply</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">1 year</div>
+                            <div class="stat-label">Contract Term</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="case-study" id="case-3">
+                    <div class="case-header">
+                        <div class="case-number">3</div>
+                        <h3 class="case-title">Aircraft Procurement for Space Agency</h3>
+                    </div>
+                    
+                    <p>ZINGSA (Zimbabwe National Geospatial and Space Agency) approached us to source specialized aircraft for their scientific research and experiments program.</p>
+                    
+                    <div class="case-image" style="background-image: url('https://images.unsplash.com/photo-1559815451-9c6a8f4f0a0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');"></div>
+                    
+                    <h4>Our Achievement:</h4>
+                    <ul>
+                        <li>Sourced a 7-seater plane for aerodynamic research</li>
+                        <li>Procured a luxury 5-seater private jet</li>
+                        <li>Facilitated purchase through Cessna in Moscow</li>
+                        <li>Managed all documentation and logistics</li>
+                    </ul>
+                    
+                    <div class="case-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">$50M</div>
+                            <div class="stat-label">Project Value</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">2</div>
+                            <div class="stat-label">Aircrafts Procured</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">30 days</div>
+                            <div class="stat-label">Delivery Time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="member-info">
+                        <h3>Robert Nyamugada</h3>
+                        <div class="member-role">CEO & Project Manager</div>
+                        <p>With extensive experience in international business development, Robert leads our strategic partnerships and complex projects.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-img" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');">
+                    </div>
+                    <div class="member-info">
+                        <h3>Ekaterina Federenko</h3>
+                        <div class="member-role">Marketing Manager & SMM</div>
+                        <p>Ekaterina drives our marketing strategies and social media presence, helping clients connect with Russian audiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Address</h3>
+                            <p>Sovetskaya Street 2, office 303<br>Moscow Region, Russia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>cm_services@mail.ru</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>WhatsApp</h3>
+                            <p>+7 910 448 3756</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Friday: 09:00 - 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Global Network</h3>
+                            <p>Active in Africa, Asia, and Russian-friendly countries with extensive conference participation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" required>
+                                <option value="">Select a service</option>
+                                <option value="b2b">B2B Matchmaking</option>
+                                <option value="logistics">International Logistics</option>
+                                <option value="oil">Oil & Energy Products</option>
+                                <option value="travel">Travel & Hospitality</option>
+                                <option value="smm">Social Media Marketing</option>
+                                <option value="machinery">Machinery Procurement</option>
+                                <option value="other">Other Services</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo-footer">
+                    <i class="fas fa-globe"></i> CM Services
+                </div>
+                
+                <p class="footer-text">Bridging international businesses with Russian opportunities since 2024. We've facilitated over 7 major deals and 15+ SMM projects with 100% client satisfaction.</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                
+                <div class="copyright">
+                    &copy; 2024 CM Services. All Rights Reserved. | Sovetskaya Street 2, office 303, Moscow Region, Russia
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        
+        // Case Study Tabs
+        const caseTabs = document.querySelectorAll('.case-tab');
+        const caseStudies = document.querySelectorAll('.case-study');
+        
+        caseTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and studies
+                caseTabs.forEach(t => t.classList.remove('active'));
+                caseStudies.forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding case study
+                const caseId = tab.getAttribute('data-case');
+                document.getElementById(`case-${caseId}`).classList.add('active');
+            });
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Language Toggle
+        const langButtons = document.querySelectorAll('.lang-toggle button');
+        
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                langButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                if(button.id === 'lang-ru') {
+                    // Switch to Russian
+                    alert("Website language changed to Russian");
+                    // In a real implementation, this would switch all text to Russian
+                } else {
+                    alert("Website language changed to English");
+                }
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you shortly.');
+            contactForm.reset();
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
+                header.style.padding = '10px 0';
+            } else {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+                header.style.padding = '15px 0';
+            }
+        });
+    </script>
+</body>
+</html>
